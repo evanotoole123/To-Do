@@ -1,10 +1,21 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 
-public class Persistence(){
+import com.sun.source.doctree.SerialFieldTree;
+import java.lang.classfile.instruction.ThrowInstruction;
+import java.time.chrono.ThaiBuddhistChronology;
 
-    public Persistence() {
+
+
+public class Persistence{
+    public static void createGroup(String group){
+        CRUD.createGroup(group);
     }
-    
+
+    public static void createEvent(String group, String event, String time){
+
+    }
+
+    public static void searchEvents(String event, String group){
+
+    }
+
 }

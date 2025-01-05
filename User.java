@@ -7,14 +7,19 @@ public class User{
     //some fields I want are an array of hashmaps containing date and time events
 
     private HashMap<String, HashMap<String,String>> mapArr;
+    private boolean autosave;
 
-    
     public User(){
         this.mapArr = new HashMap<>();
+        this.autosave = true;
     }
 
 
     public void setGroup(String newGroup){
+        if (this.autosave){
+            Persistence.createGroup(newGroup);
+        }
+        
         this.mapArr.put(newGroup, new HashMap<>());
     }
 
