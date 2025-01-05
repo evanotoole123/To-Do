@@ -38,7 +38,7 @@ public class CRUD{
     }
 
 
-    public static boolean searchEvents(String event, String group){
+    public static boolean searchEvents(String group, String event){
         Pattern pattern = Pattern.compile(event);
         try (BufferedReader reader = new BufferedReader(new FileReader(group + ".txt"))){
             String line;

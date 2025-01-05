@@ -22,12 +22,23 @@ public class User{
         
         this.mapArr.put(newGroup, new HashMap<>());
     }
+    
+    public void setEvent(String group, String newEvent, String newTime){
+        if (this.autosave){
+            Persistence.createEvent(group, newEvent, newTime);
+        }
 
-
-    public void setEvent(String newEvent, String newTime, String group){
         HashMap<String, String> tempHash = this.mapArr.get(group);
-        tempHash.put(newEvent, newTime);
-        this.mapArr.put(group, tempHash);
+        if (tempHash != null){
+            tempHash.put(newEvent, newTime);
+            this.mapArr.put(group, tempHash);
+        }
+        else{
+            tempHash = new HashMap<>();
+            tempHash.put(newEvent, newTime);
+            this.mapArr.put(group, tempHash);
+        }
+        
     }
 
 
